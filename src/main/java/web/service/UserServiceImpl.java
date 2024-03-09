@@ -25,4 +25,28 @@ public class UserServiceImpl implements UserService {
     public List<User> index() {
         return userDAO.index();
     }
+
+    @Override
+    @Transactional
+    public User getUser(int id) {
+        return userDAO.getUser(id);
+    }
+
+    @Override
+    @Transactional
+    public void saveUser(User user) {
+        userDAO.saveUser(user);
+    }
+
+    @Override
+    @Transactional
+    public void updateUser(User user) {
+        userDAO.updateUser(user);
+    }
+
+    @Override
+    @Transactional
+    public void deleteUser(int id) {
+        userDAO.deleteUser(id);
+    }
 }

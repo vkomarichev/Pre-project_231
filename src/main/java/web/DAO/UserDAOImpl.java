@@ -16,4 +16,24 @@ public class UserDAOImpl implements UserDAO {
     public List<User> index() {
         return entityManager.createQuery("from User").getResultList();
     }
+
+    @Override
+    public User getUser(int id) {
+        return entityManager.find(User.class, id);
+    }
+
+    @Override
+    public void saveUser(User user) {
+        entityManager.persist(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        entityManager.merge(user);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        entityManager.remove(getUser(id));
+    }
 }
